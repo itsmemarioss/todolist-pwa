@@ -22,7 +22,11 @@ function Copyright() {
 // TODO remove, this demo shouldn't need to reset the theme.
 const defaultTheme = createTheme();
 
-export default function StickyFooter() {
+type Props = {
+  children?: React.ReactNode
+};
+
+const StickyFooter: React.FC<Props> = ({children}) => {
   return (
     <ThemeProvider theme={defaultTheme}>
       <Box
@@ -40,6 +44,7 @@ export default function StickyFooter() {
           <Typography variant="h5" component="h2" gutterBottom>
             {'Store your taks locally and tide up your day!'}
           </Typography>
+          {children}
         </Container>
         <Box
           component="footer"
@@ -64,3 +69,5 @@ export default function StickyFooter() {
     </ThemeProvider>
   );
 }
+
+export default StickyFooter;

@@ -1,9 +1,15 @@
 import React from 'react';
-import logo from './logo.svg';
 import StickyFooter from './layout/StickyFooter';
+import { TextField } from '@mui/material';
+import TaskList from './components/TaskList/TaskList';
 
 function App() {
-  return <StickyFooter />;
+  return (
+    <StickyFooter>
+      <TextField id="new-task" label="New task" variant="standard" fullWidth />
+      <TaskList />
+    </StickyFooter>
+  );
 }
 
 export default App;
