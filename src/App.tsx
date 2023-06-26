@@ -1,14 +1,17 @@
 import React from 'react';
 import StickyFooter from './layout/StickyFooter';
-import { TextField } from '@mui/material';
 import TaskList from './components/TaskList/TaskList';
+import TodoProvider from './components/Provider/Provider';
+import NewTask from './components/NewTask/NewTask';
 
 function App() {
   return (
-    <StickyFooter>
-      <TextField id="new-task" label="New task" variant="standard" fullWidth />
-      <TaskList />
-    </StickyFooter>
+    <TodoProvider>
+      <StickyFooter>
+        <NewTask />
+        <TaskList />
+      </StickyFooter>
+    </TodoProvider>
   );
 }
 

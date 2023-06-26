@@ -1,21 +1,16 @@
-import React from 'react';
+import { useContext } from 'react';
 import { Avatar, IconButton, List, ListItem, ListItemAvatar, ListItemText } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 import TaskIcon from '@mui/icons-material/Task';
-
-function generate(element: React.ReactElement) {
-  return [0, 1, 2].map((value) =>
-    React.cloneElement(element, {
-      key: value,
-    }),
-  );
-}
+import { TodoContext } from '../Provider/Provider';
 
 const TaskList = () => {
+  const { tasks } = useContext(TodoContext);
+
   return (
     <List dense={false}>
-        {generate(
-          <ListItem
+        {tasks && tasks.map( task =>
+          <ListItem key={task.id}
             secondaryAction={
               <IconButton edge="end" aria-label="delete">
                 <DeleteIcon />
@@ -28,8 +23,8 @@ const TaskList = () => {
               </Avatar>
             </ListItemAvatar>
             <ListItemText
-              primary="Single-line item"
-              secondary={'Secondary text'}
+              primary={`${task.description}`}
+              secondary={`${task.isDone ? "Done" : "To Do"}`}
             />
           </ListItem>,
         )}
