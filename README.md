@@ -1,5 +1,5 @@
 # todolist-pwa
-TODO list for web mobile apps course
+TODO list for web mobile apps course 2 
 
 This app was created with create-react-app. For more information see [this link.](https://create-react-app.dev/docs/making-a-progressive-web-app/)
 
