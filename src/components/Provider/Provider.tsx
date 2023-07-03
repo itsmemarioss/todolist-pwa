@@ -11,12 +11,14 @@ export type TodoContext = {
   tasks: Task[];
   addTask: (task: string) => void;
   removeTask: (id: string) => void;
+  changeStatus: (id: string) => void;
 }
 
 export const TodoContext = createContext<TodoContext>({
   tasks: [],
   addTask: (task: string) => {},
   removeTask: (id: string) => {},
+  changeStatus: (id: string) => {},
 });
 
 const todoListItemName = "todo-list";
@@ -62,10 +64,20 @@ const TodoProvider = ({ children }: TodoProviderProps) => {
     setTasks(todoList);
   }
 
+  const changeStatus = (id: string) => {
+    let todoList = getTodoList();
+    todoList.forEach(task => {
+      if (task.id === id) task.isDone = !task.isDone;
+    });
+    localStorage.setItem(todoListItemName, JSON.stringify(todoList));
+    setTasks(todoList);
+  }
+
   const value = {
     tasks,
     addTask,
-    removeTask
+    removeTask,
+    changeStatus
   };
 
   return <TodoContext.Provider value={value}>
