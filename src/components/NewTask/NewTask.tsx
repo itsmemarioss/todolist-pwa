@@ -24,7 +24,7 @@ const NewTask = () => {
             setText(event.target.value);
           }}
           onKeyDown={(e) => {
-            if(e.keyCode === 13){
+            if(text && e.keyCode === 13){
               sendValue()
             }
           }}
