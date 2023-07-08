@@ -5,14 +5,14 @@ import TaskIcon from '@mui/icons-material/Task';
 import { TodoContext } from '../Provider/Provider';
 
 const TaskList = () => {
-  const { tasks } = useContext(TodoContext);
+  const { tasks, removeTask } = useContext(TodoContext);
 
   return (
     <List dense={false}>
         {tasks && tasks.map( task =>
           <ListItem key={task.id}
             secondaryAction={
-              <IconButton edge="end" aria-label="delete">
+              <IconButton edge="end" aria-label="delete" onClick={ () => {removeTask(task.id)}}>
                 <DeleteIcon />
               </IconButton>
             }
