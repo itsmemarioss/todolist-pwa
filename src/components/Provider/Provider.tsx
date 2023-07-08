@@ -7,14 +7,14 @@ export interface Task {
   isDone: boolean;
 }
 
-export type TodoContext = {
+export type TodoContextType = {
   tasks: Task[];
   addTask: (task: string) => void;
   removeTask: (id: string) => void;
   changeStatus: (id: string) => void;
 }
 
-export const TodoContext = createContext<TodoContext>({
+export const TodoContext = createContext<TodoContextType>({
   tasks: [],
   addTask: (task: string) => {},
   removeTask: (id: string) => {},

@@ -39,7 +39,7 @@ const StickyFooter: React.FC<Props> = ({children}) => {
         <CssBaseline />
         <Container component="main" sx={{ mt: 8, mb: 2 }} maxWidth="sm">
           <Typography variant="h2" component="h1" gutterBottom>
-            // TODO
+            TODO List
           </Typography>
           <Typography variant="h5" component="h2" gutterBottom>
             {'Store your taks locally and tide up your day!'}
